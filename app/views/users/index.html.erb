@@ -1,55 +1,51 @@
+<!--ユーザー一覧-->
 <H1>User info</H1>
+<!--ユーザー画像-->
 <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></br>
 <table class="table">
   <tbody>
     <tr></tr>
     <tr>
       <th>name</th>
-      <th></th>
     </tr>
     <tr>
       <th>introduction</th>
-      <th></th>
     </tr>
     <tr>
+      <%= link_to "here", edit_user_path(current_user)  %>
     </tr>
   </tbody>
 </table>
 
+
+
 <h1>New Book</h1>
 <%= form_with model:@book, local:true do |f| %>
 
-  <h4>Title</h4><%=f.text_field :title %>
+  <h4>Title</h4><%= f.text_field :title %>
   <h4>Opnion</h4><%= f.text_area :body %>
 <br>
   <%= f.submit 'Create book' %>
 
 <% end %>
 
-
 <!--ユーザー画像も横並びにさせたい-->
-
-<H1>Books</H1>
+<H1>Users</H1>
 <table class="table table-hover table-inverse">
   <thead>
     <tr>
-    <th></th>
-    <th>Title</th>
-    <th>Opinion</th>
+    <th>image</th>
+    <th>name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-  <tbody><% @books.each do |book| %>
+  <tbody><% @users.each do |user| %>
     <tr>
     <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></br></td>
-    <td><%= link_to book.title, "/books/#{book.id}" %></td>
-    <td><%= book.body %></td>
+    <td><%= user.name %></td>
+    <td><%= link_to "Show", "/users/:id" %></td>
+
       </tr>
       <% end %>
   </tbody>
 </table>
-
-
-
-
-
