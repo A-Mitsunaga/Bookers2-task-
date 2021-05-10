@@ -1,7 +1,6 @@
 <!--ユーザー一覧-->
 <H1>User info</H1>
 <!--ユーザー画像-->
- <label for="inputImage">Image</label><br>
 <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></br>
 <table class="table">
   <tbody>
@@ -44,10 +43,9 @@
   </thead>
   <tbody><% @users.each do |user| %>
     <tr>
-    <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></br></td>
+    <td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></br></td>
     <td><%= user.name %></td>
-    <td><%= link_to "Show", "users/:id" %></td>
-
+    <td><%= link_to "Show", "users/#{user.id}" %></td>
       </tr>
       <% end %>
   </tbody>

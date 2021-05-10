@@ -15,12 +15,17 @@ class BooksController < ApplicationController
   def show
     @book = Book.find_by(id: params[:id])
     @books = Book.all
+    @user = current_user
+  end
+
+  def destroy
+
   end
 
 
 private
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :profile_image)
     # 追加あるかも
   end
 
