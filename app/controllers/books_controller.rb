@@ -9,13 +9,14 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     @book.save
-    redirect_to book_path(id: current_user)
+    redirect_to book_path(@book.id)
   end
 
   def show
     @book = Book.find_by(id: params[:id])
     @books = Book.all
     @user = current_user
+    @bookn = Book.new
   end
 
   def destroy
