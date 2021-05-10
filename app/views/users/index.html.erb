@@ -1,15 +1,18 @@
 <!--ユーザー一覧-->
 <H1>User info</H1>
 <!--ユーザー画像-->
+ <label for="inputImage">Image</label><br>
 <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></br>
 <table class="table">
   <tbody>
     <tr></tr>
     <tr>
       <th>name</th>
+      <th><%= @user.name %></th>
     </tr>
     <tr>
       <th>introduction</th>
+      <th><%= @user.introduction %></th>
     </tr>
     <tr>
       <%= link_to "here", edit_user_path(current_user)  %>
@@ -43,7 +46,7 @@
     <tr>
     <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></br></td>
     <td><%= user.name %></td>
-    <td><%= link_to "Show", "/users/:id" %></td>
+    <td><%= link_to "Show", "users/:id" %></td>
 
       </tr>
       <% end %>

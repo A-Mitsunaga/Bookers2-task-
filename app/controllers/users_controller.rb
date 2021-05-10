@@ -6,16 +6,19 @@ class UsersController < ApplicationController
   end
 
   def index
+
     @book = Book.new
     @books = Book.all
     @users = User.all
+    @user = current_user
+
   end
 
   def create
     @book = Book.new(book_param)
     @book.user_id = current_user.id
     @book.save
-    redirect_to books_path(@user.id)
+    redirect_to book_path(@user.id)
   end
 
   def edit
@@ -30,7 +33,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :profile_image)
+    params.require(:user).permit(:name, :profile_image, :introduction)
     # 追加あるかも
   end
 
