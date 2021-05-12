@@ -6,6 +6,6 @@ you can share and exchange your opinions, impressions, and emotions</br>
 <br>
 about various books!</br>
 <br>
- <%= link_to 'Log in' , user_session_path %></br>
+ <%= link_to 'Log in' , user_session_path, class: "btn-secondary" %></br>
  <br>
-  <%= link_to 'Sign up', new_user_registration_path %>
+ <button type="button" class="btn btn-primary"><%= link_to 'Sign up', new_user_registration_path %></button>

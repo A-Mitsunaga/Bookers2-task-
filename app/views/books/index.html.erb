@@ -1,6 +1,11 @@
-<H1>User info</H1>
-<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></br>
-<table class="table">
+<div class="container">
+    <div class="row">
+      <div class="col text-right px-0">
+      <div class="col-lg-2" style="background-color: orange;">
+        <h2>サイドバー</h2>
+        <H2>User info</H2>
+        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></br>
+      <table class="table table-striped">
   <tbody>
     <tr></tr>
     <tr>
@@ -15,8 +20,7 @@
     </tr>
   </tbody>
 </table>
-
-<h1>New Book</h1>
+<h2>New Book</h2>
 <% if @book.errors.any? %>
   <%= @book.errors.count %>件のエラーが発生しました
   <% @book.errors.full_messages.each do |book| %>
@@ -30,12 +34,14 @@
 <br>
   <%= f.submit 'Create book' %>
 <% end %>
-
-
-<!--ユーザー画像も横並びにさせたい-->
-
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-10">
 <H1>Books</H1>
-<table class="table table-hover table-inverse">
+<table class="table table-striped">
   <thead>
     <tr>
     <th></th>
@@ -53,3 +59,4 @@
       <% end %>
   </tbody>
 </table>
+</div>

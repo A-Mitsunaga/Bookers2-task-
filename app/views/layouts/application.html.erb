@@ -9,14 +9,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class>
+  <body>
         <% if user_signed_in? %>
-      <li class="nav-item">
+      <ul class="nav-item">
         <%= link_to 'Home', user_path(current_user.id) %>
-      </li>
-      <li class="nav-item">
+      </ul>
+      <ul class="nav-item">
         <%= link_to "Users", users_path%>
-        </li>
+      </ul>
 
       <li class="nav-item">
         <%= link_to "Books", books_path %>
@@ -44,7 +44,7 @@
       </li>
 
 
-
+    <%= render 'layouts/notifications' %>
     <% end %>
     <%= yield %>
   </body>
