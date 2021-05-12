@@ -28,12 +28,20 @@ class BooksController < ApplicationController
     @book.destroy
     end
     redirect_to books_path
-
+  end
+  def edit
+    @book = Book.find(params[:id])
   end
 
-private
+  def update
+    @book = Book.find(params[:id])
+    @book.update(book_params)
+    redirect_to book_path(@book.id)
+  end
+
+  private
   def book_params
-    params.require(:book).permit(:title, :body, :profile_image)
+    params.require(:book).permit(:title, :body)
   end# 追加あるかも
 
 end

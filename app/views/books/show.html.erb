@@ -35,11 +35,13 @@
     <td>名前</td>
     <td><%= @book.title %></td>
     <td><%= @book.body %></td>
+     <% if @book.user == current_user %>
     <td>
       <%= link_to 'Edit', edit_book_path %></td>
     <td>
       <%= link_to 'Destroy', "/books/#{@book.id}", method: :delete, data: { confirm: '本当に削除しますか?' } %>
     </td>
+     <% end %>
     </tr>
   </tbody>
 </table>
