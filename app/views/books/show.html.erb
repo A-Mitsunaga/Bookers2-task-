@@ -35,8 +35,11 @@
     <td>名前</td>
     <td><%= @book.title %></td>
     <td><%= @book.body %></td>
-    <td><%= link_to 'Edit',  edit_book_path %></td>
-    <td><%= link_to 'Destroy', book_path(@book.user_id), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+    <td>
+      <%= link_to 'Edit', edit_book_path %></td>
+    <td>
+      <%= link_to 'Destroy', "/books/#{@book.id}", method: :delete, data: { confirm: '本当に削除しますか?' } %>
+    </td>
     </tr>
   </tbody>
 </table>
