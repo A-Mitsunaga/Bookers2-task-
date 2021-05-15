@@ -3,6 +3,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @books = Book.all
     @user = current_user
+
   end
 
   def create
@@ -21,6 +22,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @user = current_user
     @bookn = Book.new
+    @users = User.find_by(id: params[:id])
   end
 
   def destroy
@@ -48,6 +50,6 @@ class BooksController < ApplicationController
   private
   def book_params
     params.require(:book).permit(:title, :body)
-  end# 追加あるかも
+  end
 
 end
