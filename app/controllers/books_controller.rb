@@ -3,6 +3,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @books = Book.all
     @user = current_user
+    @users = User.find_by(params[:id])
 
   end
 
@@ -13,6 +14,7 @@ class BooksController < ApplicationController
       flash[:notice] = "Book was successfully saved."
       redirect_to book_path(@book.id)
     else
+    @user = current_user
     render action: :index
     end
   end
