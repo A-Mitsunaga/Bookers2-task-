@@ -38,7 +38,6 @@
 <% end %>
    </div>
    </table>
-<%= flash[:notice] %>
   <div class="col-md-8 offset-md-1">
 <H1>Book detail</H1>
   <table class="table">
@@ -47,6 +46,7 @@
         <td>
         <%= link_to user_path(@book.user.id) do %>
         <%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+        <br>
         <%= @book.user.name %>
         <% end %>
         </td>
