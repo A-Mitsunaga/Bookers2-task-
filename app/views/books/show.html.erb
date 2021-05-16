@@ -55,7 +55,10 @@
         <td><%= @book.body %></td>
          <% if @book.user == current_user %>
         <td>
-        <%= link_to 'Edit', edit_book_path %></td>
+        <%= link_to edit_book_path do %>
+        <buttun type="buttun" class="btn btn-success">Edit</buttun>
+        <% end %>
+        </td>
         <td>
         <%= link_to 'Destroy', "/books/#{@book.id}", method: :delete, data: { confirm: '本当に削除しますか?' } %>
         </td>
