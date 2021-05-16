@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!
 before_action :ensure_correct_user, only:[:edit]
+
   def show
     @user = User.find(params[:id])
     @books = @user.books
@@ -41,11 +42,10 @@ before_action :ensure_correct_user, only:[:edit]
   end
 
   private
-
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
-    # アクション　現在のとは違う
   end
+
   def ensure_correct_user
      user = User.find(params[:id])
      if user != current_user
